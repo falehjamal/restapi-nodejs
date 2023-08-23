@@ -9,7 +9,7 @@ var db = mysql.createConnection({
 
 
 db.connect(function(err) {
-    if (err) throw console.log("Database ga Konek"+err);
+    if (err) throw console.log("Database ga Konek "+err);
     console.log("Database Connected");
 });
 

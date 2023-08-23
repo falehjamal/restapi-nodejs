@@ -1,3 +1,5 @@
+var express = require('express')
+var bodyParser = require('body-parser')
 var http = require('http')
 var url = require('url')
 var qs = require('querystring')
@@ -71,7 +73,13 @@ http.createServer(function (req, res) {
         //update product    
         
     }else if(path == "/products" && req.method === "DELETE"){
-        //delete product    
+        let sql = "DELETE FROM products WHERE id="+id;
+        db.query(sql,(err, result) => {
+            if (err) throw err;
+            
+            res.end(JSON.stringify(result));
+            
+        }); 
     }else if (path == '/') {
 
     res.end('API CRUD Node JS')
