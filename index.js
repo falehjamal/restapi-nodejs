@@ -62,7 +62,7 @@ http.createServer(function (req, res) {
                 if (result.affectedRows==1) {
                     res.end(JSON.stringify({'message': 'success'}))
                 } else{
-                    res.end(JSON.stringify({message: 'gagal'}));
+                    res.end(JSON.stringify({'message': 'gagal'}));
                 }
             })
         })
@@ -73,7 +73,9 @@ http.createServer(function (req, res) {
     }else if(path == "/products" && req.method === "DELETE"){
         //delete product    
     }else if (path == '/') {
-    res.end('Tes node js lur')
+
+    res.end('API CRUD Node JS')
+
     }
 
 
