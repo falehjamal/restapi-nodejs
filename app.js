@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 5000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
+
+
 app.post('/products',(req,res)=>{
     const data = {...req.body};
     const sql = "insert into products set ?";
@@ -25,7 +27,6 @@ app.get('/products',(req,res)=>{
     const sql = "select * from products";
     const id = req.query.id;
 
-    // res.end(id);
 
     if(id === undefined){
         db.query(sql,(err,rows,field)=>{
@@ -117,6 +118,15 @@ app.delete('/products/:id',(req,res)=>{
         }
     
     });
+});
+
+app.get('/',(req,res)=>{
+    res.send("Node JS App");
+    // res.redirect('/products');
+});
+
+app.get('*',(req,res)=>{
+    res.send("Tersesat lurr");
 });
 
 
